@@ -1,0 +1,1 @@
+web: gunicorn HTML_list_maker.wsgi --log-file -
