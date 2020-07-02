@@ -1,5 +1,6 @@
 # HTML List Maker
-A simple django project for making HTML list form user data 
+A simple django project for making HTML list form user data<br> 
+Python django, HTML&Css, Javascript, Bootstrap
 
 <h1>Types of List</h1>
 1)Ordered List<br>
