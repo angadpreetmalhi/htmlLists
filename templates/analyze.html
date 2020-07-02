@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>HTML List Maker </title>
+
+    <style>
+.footer {
+		padding-top:1px;
+   		position: fixed;
+   		bottom: 0;
+   		width: 100%;
+   		background-color: black;
+   		text-align: center;
+   				}
+   		.footer a{
+            color:white;
+            }
+#corner-btn{
+  position: absolute;
+  right: 0;
+  top: 15px;
+  padding: 4px;
+}
+</style>
+  </head>
+  <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">Home</a>
+  <a class="navbar-brand" href="#" style="text-align:center">List Maker</a>
+</nav>
+
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Create HTML Lists</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+</nav>
+
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Success!</strong> Your lists are ready!
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+<div class="container">
+
+<h1>Your {{ purpose }} is ready for copy-paste</h1>
+
+<div style="position:relative;" class="bg-light">
+<p>
+    <button id="corner-btn" class="btn btn-outline-primary" onclick="copy()">
+        Copy
+    </button>
+  <pre id="copy-text" class="p-4"><h2>{{ analyzed_text }}</h2></pre>
+</p>
+</div>
+</div>
+<footer class="footer">
+  <div class="container">
+      <span class="btn-linkedin"><a href="https://www.linkedin.com/in/angad-preet-singh-4a9515199/" >LinkedIn@Angad</a></span>
+  </div>
+</footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+
+    <script>
+      function copy() {
+        if (document.selection) {
+    var range = document.body.createTextRange();
+    range.moveToElementText(document.getElementById("copy-text"));
+    range.select().createTextRange();
+    document.execCommand("copy");
+
+  } else if (window.getSelection) {
+    var range = document.createRange();
+    range.selectNode(document.getElementById("copy-text"));
+    window.getSelection().addRange(range);
+    document.execCommand("copy");
+    alert('Copied')
+
+  }
+      }
+    </script>
+
+  </body>
+</html>

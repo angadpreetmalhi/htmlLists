@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!--Typed.js-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typed.js"></script>
+
+    <title>HTML List Maker </title>
+    <style>
+		.footer {
+		padding-top:1px;
+   		position: fixed;
+   		bottom: 0;
+   		width: 100%;
+   		background-color: black;
+   		text-align: center;
+   				}
+   		.footer a{
+            color:white;
+            }
+	</style>
+  </head>
+  <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">List Maker</a>
+</nav>
+
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Create HTML Lists</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+<div class="container">
+
+  <form action='/analyze' onsubmit="return validate()" method='post'> {% csrf_token %}
+
+
+
+  <div class="form-group">
+    <h3><span id="typed"></span></h3>
+
+    <textarea class="form-control"  name='text' id="exampleFormControlTextarea1" rows="9" >{{data}}</textarea>
+
+	<!-- Word Counter -->
+	<p>
+	<span id="wordCount">0</span> Characters
+	<script type="text/javascript">
+		var exampleFormControlTextarea1 = document.getElementById("exampleFormControlTextarea1");
+		var wordCount = document.getElementById("wordCount");
+
+		exampleFormControlTextarea1.addEventListener("keyup",function(){
+		var characters = exampleFormControlTextarea1.value.split('');
+  		wordCount.innerText = characters.length;
+		});
+	</script>
+	</p>
+  </div>
+<div class="selection">
+<h4>List Type</h4>
+<div class="custom-control custom-switch">
+  <input type="checkbox" name="order" class="custom-control-input" id="customSwitch1" onclick="dis()">
+  <label class="custom-control-label" for="customSwitch1">Ordered</label>
+</div>
+
+  <div class="custom-control custom-switch">
+  <input type="checkbox" name="unorder" class="custom-control-input" id="customSwitch2" onclick="dis2()">
+  <label class="custom-control-label" for="customSwitch2">Unordered</label>
+</div>
+<h4>List Separator</h4>
+  <div class="custom-control custom-switch">
+  <input type="checkbox"  name="newLine" class="custom-control-input" id="customSwitch3" onclick="dis3()">
+  <label class="custom-control-label" for="customSwitch3">New Line </label>
+</div>
+
+  <div class="custom-control custom-switch">
+  <input type="checkbox"  name="comma" class="custom-control-input" id="customSwitch4" onclick="dis4()">
+  <label class="custom-control-label" for="customSwitch4">Comma</label>
+</div>
+  <div class="custom-control custom-switch">
+    <input type="checkbox"  name="semiColon" class="custom-control-input" id="customSwitch5"onclick="dis5()">
+    <label class="custom-control-label" for="customSwitch5">Semi Colon</label>
+  </div>
+  <div class="custom-control custom-switch">
+    <input type="checkbox"  name="dot" class="custom-control-input" id="customSwitch6"onclick="dis6()">
+    <label class="custom-control-label" for="customSwitch6">Dot(.)</label>
+  </div>
+</div>
+<button type="submit" class="btn btn-dark mt-2">Create</button>
+    </form>
+</div>
+ <!-- Typed.js DONT TOUCH THIS! -->
+ <div id="typed-strings">
+  </div>
+
+  <script>
+     var typed = new Typed('#typed',{
+                    strings:["Quickly and easily create HTML lists!"],
+                    backSpeed: 45,
+                    smartBackspace: true,
+                    backDelay: 1200,
+                    startDelay: 1000,
+                    typeSpeed: 45,
+                    loop: true,
+                  });
+
+    </script>
+  <!-- Footer-->
+<footer class="footer">
+  <div class="container">
+      <span class="btn-linkedin"><a href="https://www.linkedin.com/in/angad-preet-singh-4a9515199/" >LinkedIn@Angad</a></span>
+  </div>
+</footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+
+    <script>
+      function validate(){
+      var textarea = document.getElementById('exampleFormControlTextarea1').value;
+      if (textarea == '') {
+           alert('List maker is empty')
+          return false;
+        }
+
+      }
+      function dis(){
+      if(document.getElementById('customSwitch1').checked){
+       document.getElementById("customSwitch2").checked=false;
+      }
+      }
+      function dis2(){
+      if(document.getElementById('customSwitch2').checked){
+       document.getElementById("customSwitch1").checked=false;
+      }
+      }
+      function dis3(){
+      if(document.getElementById('customSwitch3').checked){
+       document.getElementById("customSwitch4").checked=false;
+       document.getElementById("customSwitch5").checked=false;
+       document.getElementById("customSwitch6").checked=false;
+      }
+      }
+      function dis4(){
+      if(document.getElementById('customSwitch4').checked){
+       document.getElementById("customSwitch3").checked=false;
+       document.getElementById("customSwitch5").checked=false;
+       document.getElementById("customSwitch6").checked=false;
+      }
+      }
+      function dis5(){
+      if(document.getElementById('customSwitch5').checked){
+       document.getElementById("customSwitch3").checked=false;
+       document.getElementById("customSwitch4").checked=false;
+       document.getElementById("customSwitch6").checked=false;
+      }
+      }
+      function dis6(){
+      if(document.getElementById('customSwitch6').checked){
+       document.getElementById("customSwitch3").checked=false;
+       document.getElementById("customSwitch4").checked=false;
+       document.getElementById("customSwitch5").checked=false;
+      }
+      }
+    </script>
+  </body>
+</html>
